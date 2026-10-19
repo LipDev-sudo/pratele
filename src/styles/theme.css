@@ -30,7 +30,7 @@
   .filter-pill:focus-visible { outline: 2px solid #9c4f38; outline-offset: 2px; }
   .filter-pill-active { border-color: #272421; background: #272421; color: #fff; }
   .filter-pill-active:hover { border-color: #272421; color: #fff; }
-  .footer-link { display: inline-flex; align-items: center; gap: .35rem; color: rgb(255 255 255 / .72); text-decoration: none; }
+  .footer-link { min-height: 2.75rem; display: inline-flex; align-items: center; gap: .35rem; color: rgb(255 255 255 / .72); text-decoration: none; }
   .footer-link:hover { color: #fff; }
 }
 

@@ -8,7 +8,7 @@ export function CatalogHeader({ query, onQueryChange }: CatalogHeaderProps) {
   return (
     <header className="sticky top-0 z-50 border-b border-[#ded9d1] bg-[#fdfcf9]/95 backdrop-blur-lg">
       <div className="mx-auto flex min-h-16 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
-        <a href="#inicio" className="shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9c4f38] focus-visible:ring-offset-4"><BrandMark /></a>
+        <a href="#inicio" className="inline-flex min-h-11 shrink-0 items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9c4f38] focus-visible:ring-offset-4"><BrandMark /></a>
         <label className="relative ml-auto hidden w-full max-w-sm md:block">
           <span className="sr-only">Buscar no catálogo</span>
           <Search aria-hidden="true" className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-[#716c65]" />
