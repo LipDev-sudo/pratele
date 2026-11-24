@@ -46,41 +46,40 @@ export interface ConfigLoja {
 
 export const loja: ConfigLoja = {
   demonstracao: true,
-  negocio: 'Ateliê Aurora de Barro',
+  negocio: 'Sua Loja',
   whatsapp: '',
   cor: '#A3132A',
   selo: true,
   url: 'https://pratele.vercel.app/',
   seo: {
-    titulo: 'Ateliê Aurora de Barro | Catálogo com pedido pelo WhatsApp',
+    titulo: 'Sua Loja | Catálogo com pedido pelo WhatsApp',
     descricao: 'Demonstração Achse de catálogo on-line: o cliente escolhe o produto e conversa com a loja pelo WhatsApp, com a peça já na mensagem.',
   },
   hero: {
-    chamada: 'Catálogo demonstrativo · Ateliê Aurora de Barro',
-    titulo: 'Seu trabalho à vista.',
-    texto: 'Uma seleção fictícia de cerâmicas autorais, organizada para escolher com calma e conversar sobre cada encomenda pelo WhatsApp.',
-    aviso: 'Valores e prazos são demonstrativos',
+    chamada: 'Catálogo on-line com pedido pelo WhatsApp',
+    titulo: 'Escolha a peça e fale direto com a loja',
+    texto: 'Cerâmicas feitas à mão em pequenos lotes. Veja material, prazo e valor inicial de cada peça e envie a escolha pelo WhatsApp.',
     imagens: [
       { src: '/images/products/vaso-caminho.webp', alt: 'Conjunto de vasos de cerâmica clara sobre pedestal' },
       { src: '/images/products/prato-horizonte.webp', alt: 'Prato artesanal de borda terrosa' },
     ],
-    destaque: { titulo: 'Pequenos lotes', texto: 'Feito à mão, confirmado em conversa.' },
+    destaque: { titulo: 'Pequenos lotes', texto: 'Feito à mão, confirmado em conversa' },
   },
   catalogo: {
     titulo: 'Peças para mesa e casa',
-    texto: 'Cada item representa uma peça demonstrativa. Acabamentos e disponibilidade seriam confirmados diretamente com o ateliê.',
+    texto: 'Valores iniciais. Acabamento e disponibilidade são confirmados na conversa com a loja.',
     rotuloAtributo: 'Material',
-    rotuloPrazo: 'Prazo demonstrativo',
+    rotuloPrazo: 'Prazo',
     singular: 'peça encontrada',
     plural: 'peças encontradas',
   },
   mensagens: {
-    geral: 'Olá! Vi o catálogo do Ateliê Aurora de Barro e quero conversar sobre uma encomenda.',
+    geral: 'Olá! Vi o catálogo e quero conversar sobre uma encomenda.',
     produto: 'Olá! Encontrei esta peça no catálogo (demonstração):',
   },
   rodape: {
-    texto: 'Demonstração de catálogo com pedido pelo WhatsApp. Ateliê, peças, preços e prazos são fictícios.',
-    direitos: '© 2026 Ateliê Aurora de Barro (fictício). Demonstração.',
+    texto: 'Demonstração de catálogo com pedido pelo WhatsApp. Loja, peças, preços e prazos são fictícios.',
+    direitos: '© 2026 Sua Loja · demonstração',
     links: [{ rotulo: 'Quero um catálogo assim', href: 'https://achse.onrender.com/contato' }],
   },
   produtos: [

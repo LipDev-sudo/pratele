@@ -51,6 +51,8 @@ npm audit
 
 ## Implantação para um cliente
 
+Na demonstração (`demonstracao: true`), o botão "Ver onde entra sua marca" mostra etiquetas sobre a logo, o nome, a frase, as fotos, os produtos, o WhatsApp e os contatos. Com `demonstracao: false` elas não aparecem.
+
 Tudo o que muda de uma loja para outra fica em [`src/loja.ts`](src/loja.ts): nome, logo, cor, número do WhatsApp, textos, mensagens, produtos e dados de SEO. O `index.html` é preenchido a partir desse arquivo no build.
 
 1. Copie o repositório para um novo projeto do cliente.
