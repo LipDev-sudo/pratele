@@ -8,7 +8,7 @@ test('presents and filters the demonstrative catalog without console errors', as
   });
 
   await page.goto('/');
-  await expect(page.getByRole('heading', { level: 1, name: 'Seu trabalho à vista.' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Escolha a peça e fale direto com a loja' })).toBeVisible();
   await expect(page.getByText('6 peças encontradas')).toBeVisible();
 
   const search = page.getByRole('searchbox', { name: 'Buscar no catálogo' }).filter({ visible: true });
@@ -44,7 +44,7 @@ test('has no serious or critical automated accessibility violations', async ({ p
 
 test('publishes consistent SEO metadata', async ({ page }) => {
   await page.goto('/');
-  await expect(page).toHaveTitle('Ateliê Aurora de Barro | Catálogo com pedido pelo WhatsApp');
+  await expect(page).toHaveTitle('Sua Loja | Catálogo com pedido pelo WhatsApp');
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://pratele.vercel.app/');
   await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', 'https://pratele.vercel.app/');
   await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href', '/favicon.svg');

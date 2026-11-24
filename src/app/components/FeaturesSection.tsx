@@ -1,18 +1,30 @@
 import { MessageCircle, ScanSearch, Smartphone } from 'lucide-react';
 
 const steps = [
-  { icon: ScanSearch, number: '01', title: 'Encontre com contexto', description: 'Categoria, material, valor inicial e prazo aparecem antes da conversa.' },
-  { icon: MessageCircle, number: '02', title: 'Pergunte pela peça certa', description: 'O WhatsApp abre com o nome do item e a intenção de compra já organizados.' },
-  { icon: Smartphone, number: '03', title: 'Continue no seu ritmo', description: 'A experiência prioriza o celular, sem exigir cadastro ou simular um checkout.' },
+  { icon: ScanSearch, title: 'Encontre com contexto', description: 'Categoria, material, valor inicial e prazo aparecem antes da conversa.' },
+  { icon: MessageCircle, title: 'Pergunte pela peça certa', description: 'O WhatsApp abre com o nome do item e o valor já escritos na mensagem.' },
+  { icon: Smartphone, title: 'Pensado para o celular', description: 'Sem cadastro e sem carrinho: a venda é fechada na conversa com a loja.' },
 ];
 
 export function FeaturesSection() {
   return (
-    <section className="border-y border-[#483f38] bg-[#302b27] py-16 text-white md:py-20" id="como-funciona">
+    <section className="border-t border-[var(--linha)] bg-[var(--fundo-2)] py-16 md:py-24" id="como-funciona">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl"><p className="text-xs font-bold uppercase tracking-[.18em] text-[#e2a48f]">Catálogo conversacional</p><h2 className="mt-3 text-3xl font-semibold tracking-[-.04em] sm:text-4xl">Da descoberta à conversa, sem passos artificiais.</h2></div>
-        <ol className="mt-10 grid gap-px overflow-hidden rounded-[1.5rem] border border-white/15 bg-white/15 md:grid-cols-3">
-          {steps.map((step) => <li key={step.number} className="bg-[#302b27] p-6 sm:p-8"><div className="flex items-center justify-between"><step.icon aria-hidden="true" className="size-5 text-[#e2a48f]" /><span className="text-xs font-bold tracking-[.18em] text-white/60">{step.number}</span></div><h3 className="mt-8 text-xl font-semibold">{step.title}</h3><p className="mt-3 text-sm leading-6 text-white/70">{step.description}</p></li>)}
+        <div className="max-w-2xl">
+          <p className="section-kicker">Como funciona</p>
+          <h2 className="section-title">Da vitrine à conversa em três passos</h2>
+        </div>
+        <ol className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-[var(--linha)] bg-[var(--linha)] md:grid-cols-3">
+          {steps.map((step, index) => (
+            <li key={step.title} className="bg-[var(--fundo-2)] p-6 sm:p-8">
+              <div className="flex items-center justify-between">
+                <step.icon aria-hidden="true" className="size-[18px] text-[var(--texto-2)]" strokeWidth={1.5} />
+                <span className="preco text-xs text-[var(--texto-3)]">{String(index + 1).padStart(2, '0')}</span>
+              </div>
+              <h3 className="mt-8 text-lg font-medium">{step.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--texto-2)]">{step.description}</p>
+            </li>
+          ))}
         </ol>
       </div>
     </section>

@@ -1,19 +1,22 @@
+import type { ReactNode } from 'react';
 import { loja } from '../../loja';
+import { Marcado } from './Marcado';
 
-interface BrandMarkProps { compact?: boolean; inverse?: boolean }
+interface BrandMarkProps { compact?: boolean; marcar?: boolean }
 
-export function BrandMark({ compact = false, inverse = false }: BrandMarkProps) {
-  return (
-    <span className={`inline-flex items-center gap-2.5 ${inverse ? 'text-white' : 'text-[var(--cor-marca)]'}`} aria-label={loja.negocio}>
+/** Logo e nome da loja. Sem logo configurada, a demonstração mostra o espaço reservado. */
+export function BrandMark({ compact = false, marcar = false }: BrandMarkProps) {
+  const conteudo: ReactNode = (
+    <span className="inline-flex min-w-0 items-center gap-3" aria-label={loja.negocio}>
       {loja.logo ? (
-        <img src={loja.logo} alt="" aria-hidden="true" className="h-8 w-auto shrink-0" />
+        <img src={loja.logo} alt="" aria-hidden="true" className="h-9 w-auto shrink-0" />
       ) : (
-        <svg aria-hidden="true" className="size-8 shrink-0" viewBox="0 0 32 32" fill="none">
-          <path d="M5 8.5h22M7.5 15.75h19M5 23h22" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" />
-          <path d="M8 6v19.5M24 6v19.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity=".62" />
-        </svg>
+        <span aria-hidden="true" className="flex size-9 shrink-0 items-center justify-center rounded-lg border border-dashed border-[var(--linha-forte)] text-[11px] font-medium text-[var(--texto-3)]">
+          logo
+        </span>
       )}
-      {compact ? null : <span className="text-xl font-bold tracking-[-0.03em]">{loja.negocio}</span>}
+      {compact ? null : <span className="block truncate text-[17px] font-medium tracking-[-.01em] text-[var(--texto)]">{loja.negocio}</span>}
     </span>
   );
+  return marcar ? <Marcado rotulo="Sua logo e seu nome aqui" posicao="abaixo">{conteudo}</Marcado> : conteudo;
 }

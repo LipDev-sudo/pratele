@@ -1,6 +1,15 @@
 import { MessageCircle } from 'lucide-react';
 import { generalWhatsAppLink } from '../data/catalog';
+import { Marcado } from './Marcado';
 
 export function WhatsAppFloating() {
-  return <a href={generalWhatsAppLink} target="_blank" rel="noreferrer" aria-label="Conversar sobre uma encomenda pelo WhatsApp" className="fixed bottom-4 right-4 z-40 inline-flex size-14 items-center justify-center rounded-full border border-white/30 bg-[#2d6a4f] text-white shadow-lg shadow-black/15 transition hover:bg-[#24583f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cor-marca)] focus-visible:ring-offset-4 sm:bottom-6 sm:right-6"><MessageCircle aria-hidden="true" className="size-6" /></a>;
+  return (
+    <div className="fixed bottom-4 right-4 z-40 sm:bottom-6 sm:right-6">
+      <Marcado rotulo="Seu WhatsApp" posicao="direita">
+        <a href={generalWhatsAppLink} target="_blank" rel="noreferrer" aria-label="Conversar sobre uma encomenda pelo WhatsApp" className="foco inline-flex size-14 items-center justify-center rounded-full bg-[var(--whatsapp)] text-white shadow-[0_8px_24px_rgba(0,0,0,.35)] transition-colors hover:bg-[#19663f]">
+          <MessageCircle aria-hidden="true" className="size-6" strokeWidth={1.5} />
+        </a>
+      </Marcado>
+    </div>
+  );
 }

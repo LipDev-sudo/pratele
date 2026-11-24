@@ -1,30 +1,37 @@
-import { ArrowDown, CircleCheck } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import { loja } from '../../loja';
+import { generalWhatsAppLink } from '../data/catalog';
+import { Marcado } from './Marcado';
 
 const [principal, secundaria] = loja.hero.imagens;
 
 export function HeroSection() {
   return (
-    <section id="inicio" className="overflow-hidden border-b border-[#ded9d1] bg-[#fdfcf9]">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 md:py-16 lg:grid-cols-[1.02fr_.98fr] lg:px-8 lg:py-20">
-        <div className="max-w-2xl">
-          <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-[var(--cor-marca)]">{loja.hero.chamada}</p>
-          <h1 className="max-w-xl text-balance text-5xl font-semibold leading-[.98] tracking-[-0.055em] text-[#272421] sm:text-6xl lg:text-7xl">{loja.hero.titulo}</h1>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-[#5f5a54]">{loja.hero.texto}</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a href="#catalogo" className="primary-action">Explorar peças <ArrowDown aria-hidden="true" className="size-4" /></a>
-            {loja.hero.aviso ? <span className="inline-flex items-center gap-2 text-sm text-[#716c65]"><CircleCheck aria-hidden="true" className="size-4 text-[#617363]" />{loja.hero.aviso}</span> : null}
+    <section id="inicio" className="border-b border-[var(--linha)]">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 md:py-20 lg:grid-cols-[1fr_1fr] lg:px-8 lg:py-24">
+        <div className="max-w-xl">
+          <p className="section-kicker">{loja.hero.chamada}</p>
+          <Marcado rotulo="Sua frase aqui" className="marcado-respiro mt-4">
+            <h1 className="text-balance text-[40px] font-medium leading-[1.05] tracking-[-.03em] text-[var(--texto)] sm:text-[56px] lg:text-[64px]">{loja.hero.titulo}</h1>
+          </Marcado>
+          <p className="mt-6 max-w-[36rem] text-lg leading-[1.6] text-[var(--texto-2)]">{loja.hero.texto}</p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#catalogo" className="primary-action">Ver as peças <ArrowDown aria-hidden="true" className="size-4" strokeWidth={1.5} /></a>
+            <a href={generalWhatsAppLink} target="_blank" rel="noreferrer" className="secondary-action">Conversar pelo WhatsApp</a>
           </div>
         </div>
-        <div className="relative mx-auto w-full max-w-xl" aria-label={`Seleção do catálogo de ${loja.negocio}`}>
-          <div className="grid grid-cols-[1.1fr_.9fr] gap-3 sm:gap-4">
-            <img src={principal.src} alt={principal.alt} className="aspect-[4/5] w-full rounded-[1.5rem] object-cover" width="960" height="960" />
-            <div className="grid gap-3 pt-8 sm:gap-4 sm:pt-12">
-              <img src={secundaria.src} alt={secundaria.alt} className="aspect-square w-full rounded-[1.25rem] object-cover" width="960" height="960" />
-              <div className="rounded-[1.25rem] bg-[var(--cor-marca)] p-5 text-white sm:p-6"><p className="text-xs font-bold uppercase tracking-[.16em] text-white">{loja.hero.destaque.titulo}</p><p className="mt-2 text-xl font-semibold leading-tight">{loja.hero.destaque.texto}</p></div>
+        <Marcado rotulo="Suas fotos aqui" posicao="dentro" className="block w-full">
+          <div className="grid grid-cols-[1.15fr_.85fr] gap-3 sm:gap-4" aria-label={`Seleção do catálogo de ${loja.negocio}`}>
+            <img src={principal.src} alt={principal.alt} className="aspect-[4/5] w-full rounded-2xl object-cover" width="960" height="960" />
+            <div className="grid content-end gap-3 sm:gap-4">
+              <img src={secundaria.src} alt={secundaria.alt} className="aspect-square w-full rounded-2xl object-cover" width="960" height="960" />
+              <div className="rounded-2xl border border-[var(--linha)] bg-[var(--superficie)] p-5">
+                <p className="flex items-center gap-2 text-sm text-[var(--texto-2)]"><span aria-hidden="true" className="size-1.5 rounded-full bg-[var(--cor-marca)]" />{loja.hero.destaque.titulo}</p>
+                <p className="mt-2 text-lg font-medium leading-snug text-[var(--texto)]">{loja.hero.destaque.texto}</p>
+              </div>
             </div>
           </div>
-        </div>
+        </Marcado>
       </div>
     </section>
   );
