@@ -5,9 +5,9 @@ import { categoriasDe, filterProducts, formatPrice, generateWhatsAppLink, produc
 import { Marcado } from './Marcado';
 
 const categories = categoriasDe(products);
-interface ProductCatalogProps { query: string }
+interface ProductCatalogProps { query: string; onQueryChange: (value: string) => void }
 
-export function ProductCatalog({ query }: ProductCatalogProps) {
+export function ProductCatalog({ query, onQueryChange }: ProductCatalogProps) {
   const [activeCategory, setActiveCategory] = useState('Todos');
   const filteredProducts = filterProducts(products, query, activeCategory);
   return (
@@ -21,7 +21,7 @@ export function ProductCatalog({ query }: ProductCatalogProps) {
           </div>
           <p aria-live="polite" className="preco text-sm text-[var(--texto-3)]">{filteredProducts.length} {filteredProducts.length === 1 ? loja.catalogo.singular : loja.catalogo.plural}</p>
         </div>
-        <div className="my-8 flex gap-2 overflow-x-auto pb-1" aria-label="Filtrar por categoria">
+        <div className="my-8 flex gap-2 overflow-x-auto pb-1" role="group" aria-label="Filtrar por categoria">
           {categories.map((category) => {
             const selected = activeCategory === category;
             return <button key={category} type="button" aria-pressed={selected} onClick={() => setActiveCategory(category)} className={`filter-pill ${selected ? 'filter-pill-active' : ''}`}>{category}</button>;
@@ -61,7 +61,7 @@ export function ProductCatalog({ query }: ProductCatalogProps) {
             <SearchX aria-hidden="true" className="mx-auto size-6 text-[var(--texto-3)]" strokeWidth={1.5} />
             <h3 className="mt-4 text-lg font-medium">Nenhuma peça encontrada</h3>
             <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-[var(--texto-2)]">Tente outro termo ou volte para todas as peças.</p>
-            <button type="button" onClick={() => setActiveCategory('Todos')} className="foco mt-6 rounded-md text-sm font-medium text-[var(--texto)] underline underline-offset-4">Mostrar todas as peças</button>
+            <button type="button" onClick={() => { setActiveCategory('Todos'); onQueryChange(''); }} className="foco mt-6 rounded-md text-sm font-medium text-[var(--texto)] underline underline-offset-4">Mostrar todas as peças</button>
           </div>
         )}
       </div>
